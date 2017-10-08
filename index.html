@@ -129,14 +129,16 @@
     console.log(childSnapSpot.val().name);
     console.log(childSnapSpot.val().destination);
     console.log(childSnapSpot.val().firsttraintime);
-    console.log(childSnapSpot.val().frequency);
+    console.log("Frequency"+childSnapSpot.val().frequency);
     console.log(childSnapSpot.val().dateAdded);
 //mins for arrival:
 //(current time - first time) minutes % frequency
 
-var convertedTime=moment.duration(childSnapSpot.val().firsttraintime).asMinutes();
+var firstTime=moment(childSnapSpot.val().firsttraintime).subtract(1,"years");
+
+var convertedTime=(moment.duration(firstTime).asMinutes());
 //var convertedTime=moment(childSnapSpot.val().firsttraintime, "hh:mm").subtract(1, "years");
-console.log(convertedTime);
+console.log("First Train Time:"+convertedTime);
 
 var currentTime=(moment().hours())*60+moment().minutes();
 
